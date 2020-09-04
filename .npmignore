@@ -2,10 +2,10 @@
 /.bundle/
 /.eslintcache
 /.github/
-/*.lock
-/LICENSE
+/Gemfile*
+/bin/
 /coverage/
 /node_modules/
-/vendor/
 /test.haml
+/test/
 /yarn-error.log
