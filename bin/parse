@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require_relative '../src/parser'
+require 'json'
+
+parser = Haml::Parser.new({})
+template = File.file?(ARGV[0]) ? File.read(ARGV[0]) : ARGV[0].gsub('\\n', "\n")
+
+pp JSON.parse(parser.call(template).as_json.to_json)

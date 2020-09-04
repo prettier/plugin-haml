@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const debug = require("prettier").__debug;
+
+const code = fs.existsSync(process.argv[2])
+  ? fs.readFileSync(process.argv[2], "utf-8")
+  : process.argv.slice(2).join(" ").replace(/\\n/g, "\n");
+
+const doc = debug.printToDoc(code, { parser: "haml", plugins: ["."] });
+console.log(debug.formatDoc(doc));
