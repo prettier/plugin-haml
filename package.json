@@ -1,0 +1,66 @@
+{
+  "name": "@prettier/plugin-haml",
+  "version": "0.1.0",
+  "description": "prettier plugin for the HAML template language",
+  "main": "src/plugin.js",
+  "scripts": {
+    "lint": "eslint --cache .",
+    "print": "prettier --plugin=.",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prettier/plugin-haml.git"
+  },
+  "author": "Kevin Deisz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prettier/plugin-haml/issues"
+  },
+  "homepage": "https://github.com/prettier/plugin-haml#readme",
+  "dependencies": {
+    "prettier": ">=1.10"
+  },
+  "devDependencies": {
+    "all-contributors-cli": "^6.14.1",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.10.1",
+    "husky": "^4.2.5",
+    "jest": "^26.0.0",
+    "pretty-quick": "^3.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ],
+    "env": {
+      "es6": true,
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./test/setupTests.js"
+    ],
+    "testRegex": ".test.js$"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "trailingComma": "none"
+  }
+}
