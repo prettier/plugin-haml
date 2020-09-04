@@ -14,7 +14,7 @@ describe("filter", () => {
   test("css", () => {
     const content = haml(`
       :css
-        .foo { height: 100px; }
+        .foo { height: 100px; width: 100px; }
     `);
 
     expect(content).toChangeFormat(
@@ -22,6 +22,7 @@ describe("filter", () => {
         :css
           .foo {
             height: 100px;
+            width: 100px;
           }
       `)
     );
