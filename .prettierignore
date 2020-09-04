@@ -1,0 +1,9 @@
+/.bundle/
+/.github/
+/coverage/
+/vendor/
+/.eslintcache
+/.*ignore
+/*.lock
+/LICENSE
+/test.haml
