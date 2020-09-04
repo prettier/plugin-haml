@@ -3,9 +3,12 @@
 /.eslintcache
 /.github/
 /*.lock
+/Gemfile*
 /LICENSE
+/bin/parse
 /coverage/
 /node_modules/
+/src/parser.rb
 /vendor/
 /test.haml
 /yarn-error.log

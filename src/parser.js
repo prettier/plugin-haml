@@ -1,10 +1,10 @@
 const { spawnSync } = require("child_process");
 const path = require("path");
 
+const parser = path.join(__dirname, "./parser.rb");
+
 const parse = (text, _parsers, _opts) => {
-  const child = spawnSync("ruby", [path.join(__dirname, "./parser.rb")], {
-    input: text
-  });
+  const child = spawnSync("ruby", [parser], { input: text });
 
   const error = child.stderr.toString();
   if (error) {

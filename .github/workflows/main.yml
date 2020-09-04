@@ -48,4 +48,3 @@ jobs:
         yarn lint
         yarn print --check '**/*'
         yarn test
-        bundle exec rake test
