@@ -11,8 +11,8 @@ const types = {
 
 const versions = ["1.1", "5"];
 
-// http://haml.info/docs/yardoc/file.REFERENCE.html#doctype-
-const doctype = (path, _opts, _print) => {
+// https://haml.info/docs/yardoc/file.REFERENCE.html#doctype-
+function doctype(path, _opts, _print) {
   const { value } = path.getValue();
   const parts = ["!!!"];
 
@@ -27,6 +27,6 @@ const doctype = (path, _opts, _print) => {
   }
 
   return join(" ", parts);
-};
+}
 
 module.exports = doctype;

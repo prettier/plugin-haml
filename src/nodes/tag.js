@@ -11,7 +11,7 @@ const {
   softline
 } = require("prettier/doc").builders;
 
-const getDynamicAttributes = (header, attributes) => {
+function getDynamicAttributes(header, attributes) {
   const pairs = attributes
     .slice(1, -2)
     .split(",")
@@ -23,32 +23,32 @@ const getDynamicAttributes = (header, attributes) => {
   });
 
   return group(concat(["(", align(header + 1, fill(parts)), ")"]));
-};
+}
 
-const getHashValue = (value, opts) => {
+function getHashValue(value, opts) {
   if (typeof value === "string") {
     const quote = opts.preferSingleQuotes ? "'" : '"';
     return `${quote}${value}${quote}`;
   }
 
   return value;
-};
+}
 
-const getHashRocket = (key, value, opts) => {
+function getHashRocket(key, value, opts) {
   const quote = opts.preferSingleQuotes ? "'" : '"';
   const leftSide = key.includes(":") ? `:${quote}${key}${quote}` : `:${key}`;
 
   return `${leftSide} => ${getHashValue(value, opts)}`;
-};
+}
 
-const getHashLabel = (key, value, opts) => {
+function getHashLabel(key, value, opts) {
   const quote = opts.preferSingleQuotes ? "'" : '"';
   const leftSide = key.includes(":") ? `${quote}${key}${quote}` : key;
 
   return `${leftSide}: ${getHashValue(value, opts)}`;
-};
+}
 
-const getStaticAttributes = (header, attributes, opts) => {
+function getStaticAttributes(header, attributes, opts) {
   const keys = Object.keys(attributes).filter(
     (name) => !["class", "id"].includes(name)
   );
@@ -61,9 +61,9 @@ const getStaticAttributes = (header, attributes, opts) => {
   });
 
   return group(concat(["{", align(header + 1, fill(parts)), "}"]));
-};
+}
 
-const getHeader = (value, opts) => {
+function getHeader(value, opts) {
   const { attributes } = value;
   const parts = [];
 
@@ -135,10 +135,10 @@ const getHeader = (value, opts) => {
   }
 
   return group(concat(parts));
-};
+}
 
-// http://haml.info/docs/yardoc/file.REFERENCE.html#element-name-
-const tag = (path, opts, print) => {
+// https://haml.info/docs/yardoc/file.REFERENCE.html#element-name-
+function tag(path, opts, print) {
   const { children, value } = path.getValue();
   const header = getHeader(value, opts);
 
@@ -152,6 +152,6 @@ const tag = (path, opts, print) => {
       indent(concat([hardline, join(hardline, path.map(print, "children"))]))
     ])
   );
-};
+}
 
 module.exports = tag;

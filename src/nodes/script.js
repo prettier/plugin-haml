@@ -6,8 +6,8 @@ const {
   join
 } = require("prettier/doc").builders;
 
-// http://haml.info/docs/yardoc/file.REFERENCE.html#inserting-ruby-
-const script = (path, opts, print) => {
+// https://haml.info/docs/yardoc/file.REFERENCE.html#inserting_ruby
+function script(path, opts, print) {
   const { children, value } = path.getValue();
   const parts = [];
 
@@ -30,6 +30,6 @@ const script = (path, opts, print) => {
   }
 
   return group(concat(parts));
-};
+}
 
 module.exports = script;

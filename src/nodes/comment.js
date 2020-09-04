@@ -6,8 +6,8 @@ const {
   join
 } = require("prettier/doc").builders;
 
-// http://haml.info/docs/yardoc/file.REFERENCE.html#html-comments-
-const comment = (path, opts, print) => {
+// https://haml.info/docs/yardoc/file.REFERENCE.html#html-comments-
+function comment(path, _opts, print) {
   const { children, value } = path.getValue();
   const parts = ["/"];
 
@@ -28,6 +28,6 @@ const comment = (path, opts, print) => {
   }
 
   return group(concat(parts));
-};
+}
 
 module.exports = comment;

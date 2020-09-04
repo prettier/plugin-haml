@@ -6,7 +6,7 @@ const {
   join
 } = require("prettier/doc").builders;
 
-const findKeywordIndices = (children, keywords) => {
+function findKeywordIndices(children, keywords) {
   const indices = [];
 
   children.forEach((child, index) => {
@@ -20,10 +20,10 @@ const findKeywordIndices = (children, keywords) => {
   });
 
   return indices;
-};
+}
 
-// http://haml.info/docs/yardoc/file.REFERENCE.html#running-ruby--
-const silentScript = (path, opts, print) => {
+// https://haml.info/docs/yardoc/file.REFERENCE.html#running-ruby--
+function silentScript(path, _opts, print) {
   const { children, value } = path.getValue();
   const parts = [`- ${value.text.trim()}`];
 
@@ -60,6 +60,6 @@ const silentScript = (path, opts, print) => {
   }
 
   return group(concat(parts));
-};
+}
 
 module.exports = silentScript;

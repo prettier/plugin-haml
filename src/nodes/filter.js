@@ -6,8 +6,8 @@ const {
   join
 } = require("prettier/doc").builders;
 
-// http://haml.info/docs/yardoc/file.REFERENCE.html#filters
-const filter = (path, _opts, _print) => {
+// https://haml.info/docs/yardoc/file.REFERENCE.html#filters
+function filter(path, _opts, _print) {
   const { value } = path.getValue();
 
   return group(
@@ -17,6 +17,6 @@ const filter = (path, _opts, _print) => {
       indent(concat([hardline, join(hardline, value.text.trim().split("\n"))]))
     ])
   );
-};
+}
 
 module.exports = filter;

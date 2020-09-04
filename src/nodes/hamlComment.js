@@ -1,7 +1,7 @@
 const { concat, hardline, indent, join } = require("prettier/doc").builders;
 
-// http://haml.info/docs/yardoc/file.REFERENCE.html#haml-comments--
-const hamlComment = (path, opts, _print) => {
+// https://haml.info/docs/yardoc/file.REFERENCE.html#haml-comments--
+function hamlComment(path, opts, _print) {
   const node = path.getValue();
   const parts = ["-#"];
 
@@ -16,6 +16,6 @@ const hamlComment = (path, opts, _print) => {
   }
 
   return concat(parts);
-};
+}
 
 module.exports = hamlComment;
